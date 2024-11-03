@@ -1,0 +1,37 @@
+class Task:
+    def __init__(self, name, description, due_date, status='не выполнено'):
+        self.name = name
+        self.description = description
+        self.due_date = due_date
+        self.status = status
+
+    task_list = []
+    def add_to_list(self, task_list=task_list):
+        task_list.append(self)
+    def change_status(self):
+        if self.status == 'не выполнено':
+            self.status = 'выполнено'
+        else:
+            self.status = 'не выполнено'
+
+    def diplay_current(self, task_list=task_list):
+        for task in task_list:
+            if task.status == 'не выполнено':
+                print(task.name)
+                print(task.description)
+                print(task.due_date)
+                print(task.status)
+                print()
+
+task1 = Task('задача1', 'накормить кошку', '01.01.2025')
+task1.add_to_list()
+task2 = Task('задача2', 'накормить собаку', '01.01.2025')
+task2.add_to_list()
+task3 = Task('задача3', 'пробежать полумарафон', '01.01.2025')
+task3.add_to_list()
+
+
+task1.diplay_current()
+task1.change_status()
+
+task1.diplay_current()
